@@ -3,4 +3,5 @@ A demo for building Forms with conditional in React
 
 # Run
 > npm i
+and 
 > npm start
