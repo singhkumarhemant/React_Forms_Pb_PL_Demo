@@ -2,14 +2,13 @@ import React from "react";
 
 const Select = props => {
   return (
-    <div className="form-group">
-      <label for={props.name}> {props.title} </label>
+    <div className="mySelect">
       <select
         id={props.name}
         name={props.name}
         value={props.value}
         onChange={props.handleChange}
-        className="form-control"
+        className=""
       >
         <option value="" disabled>
           {props.placeholder}

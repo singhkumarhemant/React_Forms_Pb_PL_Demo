@@ -1,17 +1,11 @@
 import React from "react";
 
 const Button = props => {
-  console.log(props.style);
+  console.log(props,'props in button');
   return (
-    <button
-      style={props.style}
-      className={
-        props.type === "primary" ? "btn btn-primary" : "btn btn-secondary"
-      }
-      onClick={props.action}
-    >
-      {props.title}
-    </button>
+    <div class="submit">
+    <input type="submit" value={props.title} id="form_button" onClick={props.action}/>
+  </div>
   );
 };
 

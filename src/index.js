@@ -1,19 +1,14 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-import FormContainer from "./containers/FormContainer";
-
-const styles = {
-  fontFamily: "sans-serif",
-  textAlign: "center"
-};
+import Hero from "./containers/Hero";
 
 class App extends Component {
   render() {
-    console.log('i am in');
     return (
-      <div className="col-md-6" style={styles}>
-        <h3> Sample Form Container </h3>
-        <FormContainer />
+      <div id="container">
+        <h1>&bull; Paisabazaar.com &bull;</h1>
+        <div class="underline"></div>
+        <Hero />
       </div>
     );
   }
