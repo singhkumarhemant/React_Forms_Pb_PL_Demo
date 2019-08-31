@@ -1,11 +1,10 @@
+/* Import Dependencies */
 import React, { Component } from "react";
-
-/* Import Components */
 import Input from "../components/Input";
-import Select from "../components/Select";
 import Button from "../components/Button";
 
-class FormContainer extends Component {
+/* Declare Class */
+class SecondContainer extends Component {
   constructor(props) {
     super(props);
 
@@ -13,16 +12,12 @@ class FormContainer extends Component {
       newUser: {
         name: "",
         email: "",
-        empType: "",
-        telephone: ""
-      },
-      showMe: false,
-      empTypeOptions: ["Salaried", "Self Emp"]
+        address: ""
+      }
     };
     this.handleEmail = this.handleEmail.bind(this);
     this.handlePhone = this.handlePhone.bind(this);
     this.handleFullName = this.handleFullName.bind(this);
-    this.handleInput = this.handleInput.bind(this);
   }
 
   handleFullName(e) {
@@ -57,29 +52,7 @@ class FormContainer extends Component {
       prevState => ({
         newUser: {
           ...prevState.newUser,
-          telephone: value
-        }
-      }),
-      () => console.log(this.state.newUser)
-    );
-  }
-  handleInput(e) {
-    let value = e.target.value;
-    let name = e.target.name;
-    if (value.toLowerCase() !== "salaried") {
-      this.setState({
-        showMe: false
-      });
-    } else {
-      this.setState({
-        showMe: true
-      });
-    }
-    this.setState(
-      prevState => ({
-        newUser: {
-          ...prevState.newUser,
-          [name]: value
+          address: value
         }
       }),
       () => console.log(this.state.newUser)
@@ -87,8 +60,7 @@ class FormContainer extends Component {
   }
 
   render() {
-    console.log(this.props, "i am in form1");
-    const showMe = this.state.showMe;
+    console.log(this.state);
     return (
       <form className="header">
         <Input
@@ -100,48 +72,22 @@ class FormContainer extends Component {
           handleChange={this.handleFullName}
         />
         <Input
-          inputType={"email"}
+          inputType={"text"}
           name={"email"}
           title={"Email"}
           value={this.state.newUser.email}
           placeholder={"Enter your Email"}
           handleChange={this.handleEmail}
         />
+
         <Input
           inputType={"text"}
-          name={"telephone"}
-          title={"telephone"}
-          value={this.state.newUser.telephone}
-          placeholder={"Enter your telephone"}
+          name={"address"}
+          title={"address"}
+          value={this.state.newUser.address}
+          placeholder={"Enter your address"}
           handleChange={this.handlePhone}
         />
-        <Select
-          title={"Your Employment Type ?"}
-          name={"empType"}
-          options={this.state.empTypeOptions}
-          value={this.state.newUser.empType}
-          placeholder={"Select Emp Type"}
-          handleChange={this.handleInput}
-        />{" "}
-        {!showMe ? (
-          <Input
-            inputType={"text"}
-            name={"selfemp"}
-            title={"salary"}
-            value={this.state.newUser.age}
-            placeholder={"Your gross annual sales / turnover"}
-            handleChange={this.handleAge}
-          />
-        ) : (
-          <Input
-            inputType={"text"}
-            name={"salary"}
-            title={"salary"}
-            value={this.state.newUser.age}
-            placeholder={"Enter your salary"}
-            handleChange={this.handleAge}
-          />
-        )}
         <Button
           action={this.props.updateForm}
           type={"primary"}
@@ -157,4 +103,4 @@ const buttonStyle = {
   margin: "10px 10px 10px 10px"
 };
 
-export default FormContainer;
+export default SecondContainer;
