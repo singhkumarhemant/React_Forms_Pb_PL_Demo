@@ -14,7 +14,8 @@ class FormContainer extends Component {
         name: "",
         email: "",
         empType: "",
-        telephone: ""
+        telephone: "",
+        orgName:""
       },
       showMe: false,
       empTypeOptions: ["Salaried", "Self Emp"]
@@ -124,14 +125,22 @@ class FormContainer extends Component {
           handleChange={this.handleInput}
         />{" "}
         {!showMe ? (
+          <div>
+           <Input
+          inputType={"text"}
+          name={"selfemp"}
+          title={"salary"}
+          value={this.state.newUser.age}
+          placeholder={"Your gross annual sales / turnover"}
+         />
           <Input
             inputType={"text"}
-            name={"selfemp"}
-            title={"salary"}
-            value={this.state.newUser.age}
-            placeholder={"Your gross annual sales / turnover"}
-            handleChange={this.handleAge}
+            name={"orgName"}
+            title={"orgName"}
+            value={this.state.newUser.orgName}
+            placeholder={"Your Organisation Name"}
           />
+          </div>
         ) : (
           <Input
             inputType={"text"}
