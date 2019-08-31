@@ -130,7 +130,7 @@ class FormContainer extends Component {
           inputType={"text"}
           name={"selfemp"}
           title={"salary"}
-          value={this.state.newUser.age}
+          value={this.state.newUser.selfemp}
           placeholder={"Your gross annual sales / turnover"}
          />
           <Input
@@ -146,9 +146,8 @@ class FormContainer extends Component {
             inputType={"text"}
             name={"salary"}
             title={"salary"}
-            value={this.state.newUser.age}
+            value={this.state.newUser.salary}
             placeholder={"Enter your salary"}
-            handleChange={this.handleAge}
           />
         )}
         <Button
